@@ -1,4 +1,4 @@
-# 💸 MERN Expense Tracker Application
+# 💸 Expense Tracker Application
 
 This is a full-stack **Expense Tracker** application built using the **MERN stack** (MongoDB, Express.js, React, Node.js). The app allows users to **add, edit, delete**, and **visualize expenses** with interactive charts. 
 
