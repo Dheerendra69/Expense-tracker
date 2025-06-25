@@ -8,7 +8,7 @@ const {
 } = require("../controllers/expenseController");
 const verifyToken = require("../middleware/auth");
 
-router.use(verifyToken); // 🔒 all below routes are protected
+router.use(verifyToken);
 
 router.post("/", addExpense);
 router.get("/", getExpenses);

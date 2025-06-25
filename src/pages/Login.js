@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import API from "../api";
 import { GoogleLogin } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode"; 
+import { jwtDecode } from "jwt-decode";
 import "../styles/Login.css";
-
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -35,17 +34,14 @@ function Login() {
       const decoded = jwtDecode(credentialResponse.credential);
       console.log("Google user:", decoded);
 
-      // Prepare signup data
       const signupData = {
         username: decoded.name,
         email: decoded.email,
-        password: "google-oauth", // placeholder password
+        password: "google-oauth", 
       };
 
-      // Make a normal signup request
-      const res = await API.post("/signup", signupData);
+      const res = await API.post("/saveUser", signupData);
 
-      // Save the token and user data
       localStorage.setItem("token", res.data.token);
       localStorage.setItem(
         "user",
@@ -65,36 +61,35 @@ function Login() {
   };
 
   return (
-  <div className="login-container">
-    <h2>Login</h2>
-    <form onSubmit={handleLogin}>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <button type="submit">Login</button>
-    </form>
+    <div className="login-container">
+      <h2>Login</h2>
+      <form onSubmit={handleLogin}>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit">Login</button>
+      </form>
 
-    <hr />
-    <h3>Or login with Google</h3>
-    <div className="google-login-button">
-      <GoogleLogin
-        onSuccess={handleGoogleLoginSuccess}
-        onError={() => alert("Google Login Failed")}
-      />
+      <hr />
+      <h3>Or login with Google</h3>
+      <div className="google-login-button">
+        <GoogleLogin
+          onSuccess={handleGoogleLoginSuccess}
+          onError={() => alert("Google Login Failed")}
+        />
+      </div>
     </div>
-  </div>
-
   );
 }
 

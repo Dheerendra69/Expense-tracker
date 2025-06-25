@@ -9,7 +9,7 @@ const addExpense = async (req, res) => {
       category,
       description,
       date,
-      user: req.user.id, // ✅ associate with logged-in user
+      user: req.user.id,
     });
     console.log(newExpense);
     await newExpense.save();
@@ -45,7 +45,6 @@ const updateExpense = async (req, res) => {
       return res.status(404).json({ message: "Expense not found" });
     }
 
-    // ✅ ensure only owner can update
     if (expense.user.toString() !== req.user.id) {
       return res
         .status(403)
@@ -73,7 +72,6 @@ const deleteExpense = async (req, res) => {
       return res.status(404).json({ message: "Expense not found" });
     }
 
-    // ✅ ensure only owner can delete
     if (expense.user.toString() !== req.user.id) {
       return res
         .status(403)

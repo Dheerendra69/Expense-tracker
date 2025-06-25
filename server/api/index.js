@@ -11,14 +11,11 @@ app.use(
     credentials: true,
   })
 );
-
 app.use(express.json());
 const userRoutes = require("../routes/userRoutes");
 const expenseRoutes = require("../routes/expenseRoutes");
-const authRoutes = require("../routes/authRoutes");
 app.use("/api", userRoutes);
 app.use("/api/expenses", expenseRoutes);
-// app.use("/api/google-login", authRoutes);
 app.listen(PORT, () => {
   console.log(`Server running at port number ${PORT}`);
 });
