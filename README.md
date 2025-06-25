@@ -31,7 +31,7 @@ This is a full-stack **Expense Tracker** application built using the **MERN stac
 
 ---
 
-### Live Demo -  https://stationaryheaven-final.onrender.com/
+### Live Demo -  [https://stationaryheaven-final.onrender.com/](https://et-manager.netlify.app/)
 
 ## 🛠 Setup Instructions
 
