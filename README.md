@@ -42,7 +42,7 @@ npm install
 npm start
 ```
 
-Run Backend (Express Server)
+### 2. Run Backend (Express Server)
 
 Step 1.
 
