@@ -1,5 +1,5 @@
 const ExpenseList = ({ expenses, onDelete, onEdit }) => {
-  console.log(expenses);
+  
   return (
     <div>
       <h3>Expense List</h3>
