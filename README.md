@@ -31,6 +31,8 @@ This is a full-stack **Expense Tracker** application built using the **MERN stac
 
 ---
 
+### Live Demo -  https://et-manager.netlify.app/
+
 ## 🛠 Setup Instructions
 
 ### 1. Clone the repository
