@@ -43,12 +43,9 @@ npm start
 ```
 
 Run Backend (Express Server)
-<!-- create a .env file in the same level as package.json and add following details - -->
-PORT = 4000
-DATABASE_URI = mongodb+srv://dheerendralpu:P4ZieaPBJHla7cyR@cluster0.uiphs0k.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-JWT_SECRET = secret
-<!-- this is a dummy database -->
+Step 1. create a .env file in the same level as package.json and copy the contents of env.example file
 
+Step 2.
 ```bash
 cd server
 npm install
