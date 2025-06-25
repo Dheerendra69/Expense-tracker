@@ -45,6 +45,7 @@ npm start
 Run Backend (Express Server)
 
 Step 1.
+
 Create a .env file in the same level as package.json and copy the contents of env.example file
 
 Step 2.
