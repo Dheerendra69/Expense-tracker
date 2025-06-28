@@ -7,7 +7,7 @@ import "../styles/Login.css";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  consoel.log(process.env.REACT_APP_GOOGLE_CLIENT_ID);
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
