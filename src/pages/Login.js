@@ -32,7 +32,6 @@ function Login() {
   const handleGoogleLoginSuccess = async (credentialResponse) => {
     try {
       const decoded = jwtDecode(credentialResponse.credential);
-      console.log("Google user:", decoded);
 
       const signupData = {
         username: decoded.name,

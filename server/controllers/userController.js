@@ -6,7 +6,6 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 const SignupController = async (req, res) => {
   try {
-    console.log("Signup");
     const { username, email, password } = req.body;
 
     const existingUser = await User.findOne({ email });
@@ -82,8 +81,6 @@ const SaveUserController = async (req, res) => {
 
     let user = await User.findOne({ email });
 
-    console.log("Before");
-    console.log(user);
     if (user) {
       const token = jwt.sign({ id: user._id, email: user.email }, JWT_SECRET, {
         expiresIn: "1h",
@@ -104,9 +101,6 @@ const SaveUserController = async (req, res) => {
       JWT_SECRET,
       { expiresIn: "1h" }
     );
-
-    console.log("After");
-    console.log(newUser);
 
     res.status(201).json({
       message: "User registered successfully",

@@ -3,7 +3,6 @@ const Expense = require("../models/Expense");
 const addExpense = async (req, res) => {
   try {
     const { amount, category, description, date } = req.body;
-    console.log(category + description);
     const newExpense = new Expense({
       amount,
       category,
@@ -11,7 +10,6 @@ const addExpense = async (req, res) => {
       date,
       user: req.user.id,
     });
-    console.log(newExpense);
     await newExpense.save();
     res.status(201).json(newExpense);
   } catch (error) {

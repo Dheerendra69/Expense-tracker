@@ -1,0 +1,68 @@
+.expense-form-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2937;
+}
+
+.expense-form-container h3 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+.expense-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.expense-form-container input {
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.expense-form-container input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.expense-form-container button {
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #10b981;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.expense-form-container button:hover {
+  background-color: #059669;
+}
+
+@media (max-width: 500px) {
+  .expense-form-container {
+    padding: 20px;
+  }
+
+  .expense-form-container h3 {
+    font-size: 20px;
+  }
+
+  .expense-form-container input,
+  .expense-form-container button {
+    font-size: 15px;
+  }
+}
