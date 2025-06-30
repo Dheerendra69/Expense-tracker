@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import API from "../api";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  console.log("Hi");
-  console.log(process.env.REACT_APP_GOOGLE_CLIENT_ID);
+  const navigate = useNavigate();
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -30,6 +31,7 @@ function Login() {
       );
     }
   };
+
   const handleGoogleLoginSuccess = async (credentialResponse) => {
     try {
       const decoded = jwtDecode(credentialResponse.credential);
@@ -37,7 +39,7 @@ function Login() {
       const signupData = {
         username: decoded.name,
         email: decoded.email,
-        password: "google-oauth", 
+        password: "google-oauth",
       };
 
       const res = await API.post("/saveUser", signupData);
@@ -88,6 +90,13 @@ function Login() {
           onSuccess={handleGoogleLoginSuccess}
           onError={() => alert("Google Login Failed")}
         />
+      </div>
+
+      <div className="signup-redirect">
+        <p>Don't have an account?</p>
+        <button onClick={() => navigate("/signup")} className="signup-btn">
+          Go to Signup
+        </button>
       </div>
     </div>
   );

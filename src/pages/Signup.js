@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import API from "../api";
+import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
 import "../styles/Signup.css";
 
 function Signup() {
@@ -28,6 +30,37 @@ function Signup() {
       );
     }
   };
+
+  const handleGoogleSignupSuccess = async (credentialResponse) => {
+    try {
+      const decoded = jwtDecode(credentialResponse.credential);
+
+      const signupData = {
+        username: decoded.name,
+        email: decoded.email,
+        password: "google-oauth",
+      };
+
+      const res = await API.post("/saveUser", signupData);
+
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          username: res.data.username,
+          email: res.data.email,
+        })
+      );
+
+      window.location.href = "/home";
+    } catch (error) {
+      alert(
+        "Google Signup failed: " +
+          (error.response?.data?.message || error.message)
+      );
+    }
+  };
+
   return (
     <div className="signup-container">
       <h2>Signup</h2>
@@ -55,6 +88,15 @@ function Signup() {
         />
         <button type="submit">Signup</button>
       </form>
+
+      <hr />
+      <h3 class="text-center">Or signup with Google</h3>
+      <div className="google-login-button">
+        <GoogleLogin
+          onSuccess={handleGoogleSignupSuccess}
+          onError={() => alert("Google Signup Failed")}
+        />
+      </div>
     </div>
   );
 }
