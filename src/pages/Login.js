@@ -8,7 +8,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   console.log("Hi");
-  consoel.log(process.env.REACT_APP_GOOGLE_CLIENT_ID);
+  console.log(process.env.REACT_APP_GOOGLE_CLIENT_ID);
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
