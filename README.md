@@ -38,7 +38,7 @@ This is a full-stack **Expense Tracker** application built using the **MERN stac
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/expense-tracker.git
+git clone https://github.com/dheerendra69/expense-tracker.git
 cd expense-tracker
 npm install
 npm start
