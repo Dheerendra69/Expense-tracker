@@ -7,7 +7,7 @@ dbConnect();
 const cors = require("cors");
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://et-manager.netlify.app"],
+    origin: ["http://localhost:3000", "https://expensetrekker.netlify.app"],
     credentials: true,
   })
 );
