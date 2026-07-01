@@ -14,10 +14,13 @@
   padding: 15px 20px;
   border-radius: 8px;
   margin-bottom: 20px;
+  flex-wrap: wrap; 
+  gap: 12px;
 }
 
 .header h2 {
   margin: 0;
+  font-size: 1.6rem;
 }
 
 .welcome-text {
@@ -66,4 +69,71 @@
   font-size: 1.1rem;
   color: #777;
   margin-top: 50px;
+}
+
+.user-info p {
+  margin: 0;
+  font-weight: bold;
+  word-break: break-word;
+}
+
+.logout-btn,
+.login-btn {
+  background-color: white;
+  color: #4a90e2;
+  border: 1px solid #4a90e2;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.logout-btn:hover,
+.login-btn:hover {
+  background-color: #357abd;
+  color: white;
+  border-color: #357abd;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 15px;
+  }
+
+  .header h2 {
+    font-size: 1.4rem;
+  }
+
+  .user-info {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .logout-btn,
+  .login-btn {
+    padding: 8px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .header h2 {
+    font-size: 1.3rem;
+  }
+
+  .user-info {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .logout-btn,
+  .login-btn {
+    width: 100%;
+  }
 }
